@@ -1,7 +1,7 @@
 import React from 'react'
 import {MdEdit, MdDelete} from 'react-icons/md'
 
-const Item = ({ expense }) => { //passing in {expense} as a destructured prop
+const Item = ({ expense, handleEdit, handleDelete }) => { //passing in {expense} as a destructured prop
 const {id, charge, amount} = expense
     return (
         <li className="item">
@@ -10,8 +10,8 @@ const {id, charge, amount} = expense
                 <span className="amount">${amount}</span>
             </div>
             <div>
-                <button className="edit-btn" aria-label="edit-btn"><MdEdit /></button>
-                <button className="clear-btn" aria-label="delete-btn"><MdDelete /></button>
+                <button className="edit-btn" aria-label="edit-btn" onClick={()=>handleEdit(id)}><MdEdit /></button>
+                <button className="clear-btn" aria-label="delete-btn" onClick={()=>handleDelete(id)}><MdDelete /></button>
             </div>
         </li>
     )
